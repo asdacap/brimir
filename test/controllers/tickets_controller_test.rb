@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require 'test_helper'
+require 'minitest/mock'
 
 class TicketsControllerTest < ActionController::TestCase
 
@@ -295,6 +296,13 @@ class TicketsControllerTest < ActionController::TestCase
       assert_equal 'GET,POST', response.headers['Access-Control-Allow-Methods']
       assert_equal 'Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token', 
           response.headers['Access-Control-Allow-Headers']
+    end
+  end
+
+  test 'should return error when mailer return nil' do
+    TicketMailer.stub :receive, nil do
+      post :create, format: :json
+      assert_response :error
     end
   end
 

@@ -86,3 +86,6 @@ gem 'fancybox2-rails', '~> 0.2.8'
 
 # gravatar for user avatar images
 gem 'gravatar_image_tag'
+
+# mail-gpg for decrypting email
+gem 'mail-gpg'

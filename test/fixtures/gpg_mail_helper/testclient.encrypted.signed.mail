@@ -1,0 +1,54 @@
+Date: Tue, 09 Jun 2015 15:20:48 +0800
+From: testclient@example.com
+To: testserver@example.com
+Message-ID: <55768a18c0941_158f3f8ad56b131410009c@amirul-Z97-HD3.mail>
+Mime-Version: 1.0
+Content-Type: multipart/encrypted;
+ boundary="--==_mimepart_5576937ec64b3_158f3f8ad56b131410163d";
+ protocol="application/pgp-encrypted"
+Content-Transfer-Encoding: 7bit
+
+This is an OpenPGP/MIME encrypted message (RFC 2440 and 3156)
+----==_mimepart_5576937ec64b3_158f3f8ad56b131410163d
+Content-Type: application/pgp-encrypted;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-Description: PGP/MIME Versions Identification
+
+Version: 1
+----==_mimepart_5576937ec64b3_158f3f8ad56b131410163d
+Content-Type: application/octet-stream;
+ charset=UTF-8;
+ name=encrypted.asc
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename=encrypted.asc
+Content-Description: OpenPGP encrypted message
+Content-ID: <557693d02ba99_158f3f8ad56b13141017a5@amirul-Z97-HD3.mail>
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+hQEMAwPs6nBdUMEIAQf+OTtiosGz2ACsG8WQRwXnxfRgM75jOchUbArN4CG3eTMR
+2juJBS0n9AM51R+AcbVKBArfo7aLHDTkOsIzpZV9oBGIebzsedCN3UDtN9wth6EA
+eaqbmz6P3cfsyXKa4a8RhSnA15baVfTAHTBxeMJ2sHi+DreeqULBMjxjTmqx4h8V
+t+8L1/vo0dPbjAcZfRz/0X6wUTJHVosU8l/CfTxJ7ZSuGgXyChtV9Eq215wxBLIW
+BZFfRVS0pN3+LDh1bEUDe/w9F3p6/fJ0TW8Klms/q/yILdJRflgJ1CnP+8oLpHOo
+8c+gMSPx/wAERsPBXcTarL2Q5M3OF7s6y7PYfMKrGtLpATvNNLrdMMzvRpBBuIdk
+cx6gRo5ZtShZFc1R5sV6kmAYu6xTqXeXG9lB/KtzsrUKyuIPs9jqQyJHhXLUYi0m
+XjXT+lN5a0OoVkPwmZwbXImYksILmu8B+0hu5R6Srx6zE2fwSBFlj/LtoKlHl888
+JTcKKzuy7W8ia59VUBa93aX1vsvZoEywfLkWBvk4uHlH/6ZcbwN+1WFlLUfk9AMB
+CLniKJOy0SHksReq7/jULXnZQmZ4NFITiylzKlxC9YJKCX7eZWen+CWVUpkcqKxG
+Kx1QGtOsJoBYm11HzkFLk779avZQXWshF+FmIR0RnhKKuNCgTbIrsoookuzIOeLP
+7zSN1yTNGH5ngepVM+HJk2zHOT/6EH1N8t5xW2dHJOCGP00W3xHSg9XY8DKSxGLc
+Gftlb+0xpcwWGx434LL1afUXtTip8Pn/anksqXZ0eDlBg3JYcUvdk5i/q9zC4neP
+kBy/DvXdZvhJnf+N7AyIuzVJVkCUpEKxJjfvtLZ+7uNAJKlJoQSL940P3wJn0s/O
+S+v+jNDMaUBvkejYCpItqjpTN0p8TWt/UrVYKUpe4IpJmJLvkaILhhom6ZA9A5cK
+KzGncV3g+CSzxzcWa/Vl2XWfwQXqXoicDRrFBVnbhc2aWkd+9/wDkkRxXGSOFO4K
+O+RhlHfo6SzG0oWfYv+RhUhoiqTp89zkAQq/Iq6qwkuh/NsgP8UThfnHIYD4xCQU
+e2gp9b7nlrFos+Pt/wDFhQU2akKJU9V3rdyUmv/K9FXjJj4aHH4fix/J7dOk/J8v
+nXhLk0HfL0s7qwR6Xl2MOk3X7O7X6vmuxhQ=
+=Swhd
+-----END PGP MESSAGE-----
+
+----==_mimepart_5576937ec64b3_158f3f8ad56b131410163d--

@@ -3,6 +3,10 @@ default: &defaults
   display_user_avatars: false
   default_user_avatar: 'identicon'
   user_avatar_api_url: ''
+  gpg_mail_private_key_passphrase: '' 
+  gpg_mail_encryption_required: false
+  gpg_mail_verification_required: false
+  gpg_key_server: "http://pool.sks-keyservers.net:11371"
 
 development:
   <<: *defaults

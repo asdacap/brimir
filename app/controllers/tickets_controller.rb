@@ -115,6 +115,10 @@ class TicketsController < ApplicationController
   def create
     if params[:format] == 'json'
       @ticket = TicketMailer.receive(params[:message])
+      if @ticket.nil?
+        head 500
+        return
+      end
     else
       @ticket = Ticket.new(ticket_params)
     end

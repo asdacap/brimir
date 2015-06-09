@@ -106,4 +106,44 @@ class TicketMailerTest < ActionMailer::TestCase
     end
   end
 
+  test 'should return nil if GpgMailHelper::decrypt_if_encrypted return nil' do
+    GpgMailHelper.stub :decrypt_if_encrypted , nil do
+      assert TicketMailer.receive(read_fixture('simple').join).nil?
+    end
+  end
+
+  class EncryptionAndSigning < TicketMailerTest
+    def simple_mail
+      Mail.new(read_fixture('simple').join)
+    end
+
+=begin
+
+    test 'should return nil if email encryption is required but email is not encrypted' do
+      AppSettings.gpg_mail_verification_required = true
+      assert TicketMailer.receive(simple_mail).nil?
+      AppSettings.gpg_mail_verification_required = false
+    end
+
+    test 'should return nil if email verification is required but email is not verified' do
+      AppSettings.gpg_mail_verification_required = true
+      assert TicketMailer.receive(simple_mail).nil?
+      AppSettings.gpg_mail_verification_required = false
+    end
+
+    test 'should get the call assure public key available when email needs the key' do
+      AppSettings.gpg_mail_verification_required = true
+
+      mocked_method = MiniTest::Mock.new
+      mocked_method.expect :call, true
+
+      TicketMailer.stub :assure_public_key_available, mocked_method do
+        assert TicketMailer.receive(simple_mail).nil?
+      end
+
+      AppSettings.gpg_mail_verification_required = false
+    end
+=end
+  end
+
 end

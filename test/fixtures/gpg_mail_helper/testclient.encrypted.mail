@@ -1,0 +1,47 @@
+Date: Tue, 09 Jun 2015 14:53:24 +0800
+From: testclient@example.com
+To: testserver@example.com
+Message-ID: <55768a18c0941_158f3f8ad56b131410009c@amirul-Z97-HD3.mail>
+Mime-Version: 1.0
+Content-Type: multipart/encrypted;
+ boundary="--==_mimepart_55768d473352c_158f3f8ad56b1314100494";
+ protocol="application/pgp-encrypted"
+Content-Transfer-Encoding: 7bit
+
+This is an OpenPGP/MIME encrypted message (RFC 2440 and 3156)
+----==_mimepart_55768d473352c_158f3f8ad56b1314100494
+Content-Type: application/pgp-encrypted;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Content-Description: PGP/MIME Versions Identification
+
+Version: 1
+----==_mimepart_55768d473352c_158f3f8ad56b1314100494
+Content-Type: application/octet-stream;
+ charset=UTF-8;
+ name=encrypted.asc
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename=encrypted.asc
+Content-Description: OpenPGP encrypted message
+Content-ID: <55768d644d592_158f3f8ad56b13141005e9@amirul-Z97-HD3.mail>
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+hQEMAwPs6nBdUMEIAQgAglY8oQLX2a6F3RD2rcz3cn1Mg1H33u3L1bC68qpy93oQ
+o2CDs3iSEDpnzyC8L7R2n9TVeO6U25ZVfFfOmgoMNBI/TgLOWCqT/fkPajxGVWFM
+fO1wlqGFZIIYLFjuZojp5EPm+lgC+jZih9BRgZdHj4UsqH9m/ZQq42uwIU2Fd/PZ
+XDrrd687m6vnBYtonqDyFFrvOvMoePmHAMSdzKV3pUmrRdImdvell0a9BDeFHTC8
+plmE9s9dVs6HqFcv4G/PXPuJCOKe8pi5dlsWRC/ldK94us7cC6Gp5CZ10kEja3Zn
+G0rDw77dDcARvQt8+twYaus0QrQ8TmLWJjEab4O0lNLAXQH2djdbsV//048/mKFS
+rYPIMtFyrOn5l+WVku6DBWy7CXYViHb6OyHw87qDjGbqDDXcUD7C2LkrOkjGIt1A
+4Ir/YGtwaPkzatPyYFtVedUOJ0rZGDa7hxVJ83c+Gnp8WPDj/SbeRRbXZK7GTXp6
+Z4X9xBCKDJXZTe9Yiu5Ggm02P+y6Pu81BcNiXU7lX9Za6zp1NDtedo9Uqk9tHQ1i
+7mVh9cHt/tLq6J5rbFTEZftH2Rxt7G9KolsabDJj+f8opfKbiK8bn0t2BZE+l/c2
+d+RyGFix/3usx3z96V5pO8IArmt/zje/pMwe0ig2SGXtmukOIpJhr2yY4HyzCEJT
+WgafdweMhcR6RbfFVieanmF3+cGa6Nu2ExCSukLyaw==
+=bJtJ
+-----END PGP MESSAGE-----
+
+----==_mimepart_55768d473352c_158f3f8ad56b1314100494--
