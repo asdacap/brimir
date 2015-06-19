@@ -71,6 +71,8 @@ class GpgMailHelper
         else
           logger.info "Signature valid"
         end
+      else
+        logger.info "Email is not encrypted or signed"
       end
     end
     email
