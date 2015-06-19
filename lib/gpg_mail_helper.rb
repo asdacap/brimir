@@ -40,7 +40,7 @@ class GpgMailHelper
     if email.encrypted?
       logger.info "Email is encrypted"
       options = {}
-      options[:password] = AppSettings.gpg_mail_private_key_passphrase if AppSettings.gpg_mail_private_key_passphrase.blank?
+      options[:password] = AppSettings.gpg_mail_private_key_passphrase unless AppSettings.gpg_mail_private_key_passphrase.blank?
       options[:verify] = AppSettings.gpg_mail_verification_required
       email = email.decrypt(options)
       logger.info "Decryption successful"
