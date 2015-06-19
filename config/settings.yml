@@ -6,7 +6,7 @@ default: &defaults
   gpg_mail_private_key_passphrase: '' 
   gpg_mail_encryption_required: false
   gpg_mail_verification_required: false
-  gpg_key_server: "http://pool.sks-keyservers.net:11371"
+  gpg_key_server: "https://pgp.mit.edu/"
 
 development:
   <<: *defaults
