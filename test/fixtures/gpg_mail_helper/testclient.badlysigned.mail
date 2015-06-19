@@ -1,0 +1,40 @@
+Date: Tue, 09 Jun 2015 14:42:21 +0800
+From: testclient@example.com
+To: testserver@example.com
+Message-ID: <55768a18c0941_158f3f8ad56b131410009c@amirul-Z97-HD3.mail>
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary="--==_mimepart_55768aca24bae_158f3f8ad56b131410024d";
+ micalg=pgp-sha1;
+ protocol="application/pgp-signature"
+Content-Transfer-Encoding: 7bit
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+----==_mimepart_55768aca24bae_158f3f8ad56b131410024d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Just testing. But I modified it...
+----==_mimepart_55768aca24bae_158f3f8ad56b131410024d
+Content-Type: application/pgp-signature;
+ charset=UTF-8;
+ name=signature.asc
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename=signature.asc
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2
+
+iQEcBAABCAAGBQJVdorKAAoJEKVyI2K2qC1mdDIH/i/TNxeuvWB9HrfE7eEjKJGd
+acDnBniY/YAzDIdi/q/p9mdIj1JxV9vikgvQYVRBsR6UNqR7prT5m15ojxCb9zmN
+bjfloA5qhWhXw2zp3w5F0+8r4UM2Xs87p7PLX5n9m1oZhUUthTFXViys/27A9QqK
+ohwhrnO3TGg5zE/HUnYfXTdCy4ca7+gh3jm47ROndI3uKhh1Op6uqCtEOvzybOhx
+bsSNdIk11YXh5Oy0EO8dJVcfsFFQpHxo01fiiM/PrQoppk1SjBvpSaz5w/30iNQa
+X4YJWZyCRmvfEqjBYMRRcaJM+3wYzZPKSZP0Tp2dBE8jegEHNHwcneAm+pXBjs4=
+=G8ba
+-----END PGP SIGNATURE-----
+
+----==_mimepart_55768aca24bae_158f3f8ad56b131410024d--

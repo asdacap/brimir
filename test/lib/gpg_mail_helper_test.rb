@@ -16,6 +16,7 @@
 
 require 'test_helper'
 require "minitest/spec"
+require "minitest/mock"
 
 describe GpgMailHelper do
 
@@ -33,6 +34,10 @@ describe GpgMailHelper do
 
   def signed_mail
     Mail.new(read_fixture('testclient.signed.mail').join)
+  end
+
+  def badly_signed_mail
+    Mail.new(read_fixture('testclient.badlysigned.mail').join)
   end
 
   def encrypted_mail
@@ -62,7 +67,7 @@ describe GpgMailHelper do
       AppSettings.gpg_mail_encryption_required = true
     end
     after do
-      AppSettings.gpg_mail_encryption_required  = false
+      AppSettings.gpg_mail_encryption_required = false
     end
     it "should return nil when the email is not encrypted" do
       assert GpgMailHelper.decrypt_if_encrypted(simple_mail).nil?
@@ -102,7 +107,9 @@ describe GpgMailHelper do
     AppSettings.gpg_mail_verification_required = true
 
     mocked_method = MiniTest::Mock.new
-    mocked_method.expect :call, true
+    mocked_method.expect :call, true do |something|
+      true
+    end
 
     GpgMailHelper.stub :assure_public_key_available, mocked_method do
       assert GpgMailHelper.decrypt_if_encrypted(simple_mail).nil?
@@ -116,6 +123,10 @@ describe GpgMailHelper do
     assert encrypted.encrypted?
     result = GpgMailHelper.decrypt_if_encrypted encrypted
     assert result.encrypted? == false
+  end
+
+  it 'should return nil when the email is badly signed' do
+    assert GpgMailHelper.decrypt_if_encrypted(badly_signed_mail).nil?
   end
 
 end
