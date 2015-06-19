@@ -29,8 +29,13 @@ class TicketMailer < ActionMailer::Base
 
     email = Mail.new(message)
 
-    email = GpgMailHelper::decrypt_if_encrypted email
-    return if email.nil?
+    remail = GpgMailHelper::decrypt_if_encrypted email
+    if remail.nil?
+      logger.error "Email decryption or verification fail. Email from #{email.from}"
+      return nil
+    end
+
+    email = remail
 
     # is this an address verification mail?
     if VerificationMailer.receive(email)

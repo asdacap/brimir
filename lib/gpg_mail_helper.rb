@@ -38,14 +38,18 @@ class GpgMailHelper
     end
 
     if email.encrypted?
+      logger.info "Email is encrypted"
       options = {}
       options[:password] = AppSettings.gpg_mail_private_key_passphrase if AppSettings.gpg_mail_private_key_passphrase.blank?
       options[:verify] = AppSettings.gpg_mail_verification_required
       email = email.decrypt(options)
+      logger.info "Decryption successful"
       if (AppSettings.gpg_mail_verification_required || email.signed?) && !email.signature_valid?
         logger.error "Email signature invalid"
         logger.error "Email from #{email.from}"
         return nil
+      else
+        logger.info "Signature valid"
       end
     else
       if AppSettings.gpg_mail_encryption_required
@@ -58,11 +62,14 @@ class GpgMailHelper
         return nil
       end
       if AppSettings.gpg_mail_verification_required || email.signed?
+        logger.info "Email is signed"
         email = email.verify
         unless email.signature_valid?
           logger.error "Email signature invalid"
           logger.error "Email from #{email.from}"
           return nil
+        else
+          logger.info "Signature valid"
         end
       end
     end
