@@ -19,7 +19,7 @@ class GpgMailHelper
       else
         logger.info "#{ids.length} keys found"
       end
-      ifs.each do |id|
+      ids.each do |id|
         hkp.fetch_and_import(id)
       end
     end
