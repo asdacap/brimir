@@ -29,6 +29,9 @@ group :test do
 
   # for coveralls
   gem 'coveralls'
+
+  # Easier mocking
+  gem 'mocha'
 end
 
 # Optional PostgreSQL for production

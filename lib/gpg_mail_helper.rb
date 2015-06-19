@@ -7,11 +7,18 @@ class GpgMailHelper
 
   def self.assure_public_key_available(email)
     email = email.to_s
+    logger.info "Assure public key for email #{email}"
     GPGME::Key.find(:public, email)
     if GPGME::Key.find(:public, email).length == 0
+      logger.info "Key not available locally. Fetching from #{AppSettings.gpg_key_server}"
       hkp = Hkp.new(AppSettings.gpg_key_server)
       ids = hkp.search(email)
-      return false if ids.length == 0
+      if ids.length == 0
+        logger.info "No key found"
+        return false
+      else
+        logger.info "#{ids.length} keys found"
+      end
       ifs.each do |id|
         hkp.fetch_and_import(id)
       end
@@ -23,8 +30,11 @@ class GpgMailHelper
     # If public key is needed, check if the public key is in keychain. 
     # If not obtain it
 
-    if AppSettings.gpg_mail_verification_required || email.encrypted?
-      return nil unless assure_public_key_available(email.from[0])
+    if AppSettings.gpg_mail_verification_required || email.encrypted? || email.signed?
+      unless assure_public_key_available(email.from[0])
+        logger.info "Fail to get key for #{email}."
+        return nil
+      end
     end
 
     if email.encrypted?

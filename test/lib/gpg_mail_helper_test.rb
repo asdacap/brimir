@@ -103,18 +103,14 @@ describe GpgMailHelper do
     end
   end
 
+  it 'should call assure public key available when email is signed' do
+    GpgMailHelper.expects(:assure_public_key_available).returns(true)
+    assert GpgMailHelper.decrypt_if_encrypted(signed_mail)
+  end
+
   it 'should call assure public key available when email needs the key' do
     AppSettings.gpg_mail_verification_required = true
-
-    mocked_method = MiniTest::Mock.new
-    mocked_method.expect :call, true do |something|
-      true
-    end
-
-    GpgMailHelper.stub :assure_public_key_available, mocked_method do
-      assert GpgMailHelper.decrypt_if_encrypted(simple_mail).nil?
-    end
-
+    assert GpgMailHelper.decrypt_if_encrypted(simple_mail).nil?
     AppSettings.gpg_mail_verification_required = false
   end
 

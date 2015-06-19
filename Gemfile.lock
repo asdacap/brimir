@@ -135,9 +135,12 @@ GEM
     mail-gpg (0.2.4)
       gpgme (~> 2.0, >= 2.0.2)
       mail (~> 2.5, >= 2.5.3)
+    metaclass (0.0.4)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -276,6 +279,7 @@ DEPENDENCIES
   jbuilder (~> 2.2)
   jquery-rails
   mail-gpg
+  mocha
   mysql2
   non-stupid-digest-assets
   omniauth-google-oauth2
