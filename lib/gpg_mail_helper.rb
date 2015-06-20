@@ -24,6 +24,17 @@ class GpgMailHelper
       end
     end
     true
+
+  rescue OpenURI::HTTPError => e
+    logger.error "Failed to assure public key for #{email}."
+    if e.io.status[0] == "404"
+      logger.error "Key not found"
+    else
+      logger.error "Exception: #{e.class.name}"
+      logger.error "Message: #{e.message}"
+      logger.error "Backtrace: #{e.backtrace.join("\n")}"
+    end
+    false
   end
 
   def self.decrypt_if_encrypted email
