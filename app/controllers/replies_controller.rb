@@ -47,6 +47,7 @@ class RepliesController < ApplicationController
       end
     rescue => e
       Rails.logger.error 'Exception occured on Reply transaction!'
+      Rails.logger.error "Exception: #{e.class.name}"
       Rails.logger.error "Message: #{e.message}"
       Rails.logger.error "Backtrace: #{e.backtrace.join("\n")}"
       render action: 'new'
