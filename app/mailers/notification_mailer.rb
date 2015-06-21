@@ -35,7 +35,7 @@ class NotificationMailer < ActionMailer::Base
     @ticket = ticket
     @user = user
 
-    mail(to: user.email, subject: title, from: EmailAddress.default_email)
+    mail(to: user.email, subject: title, from: EmailAddress.default_email, gpg: { encrypt: ticket.encrypted, sign: ticket.signed } )
   end
 
   def new_reply(reply, user)
@@ -57,7 +57,7 @@ class NotificationMailer < ActionMailer::Base
     @reply = reply
     @user = user
 
-    mail(to: user.email, subject: title, from: EmailAddress.default_email)
+    mail(to: user.email, subject: title, from: EmailAddress.default_email, gpg: { encrypt: reply.encrypted, sign: reply.signed } )
   end
 
   def status_changed(ticket)

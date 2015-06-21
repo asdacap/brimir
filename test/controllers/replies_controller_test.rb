@@ -124,4 +124,18 @@ class RepliesControllerTest < ActionController::TestCase
     assert_equal 'open', @ticket.status
   end
 
+  test 'should preserve ticket encryption status' do
+    @ticket.encrypted = true
+    @ticket.save
+
+    post :create, reply: {
+      content: 'something',
+      ticket_id: @ticket.id,
+      notified_user_ids: @reply.users_to_notify.map { |u| u.id },
+    }
+
+    assert Reply.last.ticket == @ticket
+    assert Reply.last.encrypted
+  end
+
 end

@@ -29,6 +29,12 @@ class RepliesController < ApplicationController
 
     begin
       Reply.transaction do
+        
+        #preserve encryption status
+        @reply.encrypted = @reply.ticket.encrypted
+        @reply.signed = @reply.ticket.signed
+        @reply.signature_valid = @reply.ticket.signature_valid
+
         @reply.save!
 
         # reopen ticket
