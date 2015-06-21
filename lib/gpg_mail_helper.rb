@@ -67,7 +67,11 @@ class GpgMailHelper
       if (AppSettings.gpg_mail_verification_required || email.signed?) && !email.signature_valid?
         logger.error "Email signature invalid"
         logger.error "Email from #{email.from}"
-        return nil
+        if AppSettings.gpg_mail_ignore_bad_signature
+          logger.error "Server has been configured to ignore bad signature"
+        else
+          return nil
+        end
       else
         signature_valid = true
         logger.info "Signature valid"
@@ -89,7 +93,11 @@ class GpgMailHelper
         unless email.signature_valid?
           logger.error "Email signature invalid"
           logger.error "Email from #{email.from}"
-          return nil
+          if AppSettings.gpg_mail_ignore_bad_signature
+            logger.error "Server has been configured to ignore bad signature"
+          else
+            return nil
+          end
         else
           signature_valid = true
           logger.info "Signature valid"

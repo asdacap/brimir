@@ -9,6 +9,7 @@ default: &defaults
   gpg_key_server: "https://pgp.mit.edu/"
   gpg_mail_always_sign_outgoing_mail: false 
   gpg_mail_always_encrypt_outgoing_mail: false 
+  gpg_mail_ignore_bad_signature: false 
 
 development:
   <<: *defaults

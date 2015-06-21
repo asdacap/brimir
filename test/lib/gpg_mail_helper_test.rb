@@ -125,6 +125,12 @@ describe GpgMailHelper do
     assert GpgMailHelper.decrypt_if_encrypted(badly_signed_mail).nil?
   end
 
+  it 'should return normally when the email is badly signed and AppSettings.gpg_mail_ignore_bad_signature is true' do
+    AppSettings.gpg_mail_ignore_bad_signature = true
+    assert GpgMailHelper.decrypt_if_encrypted(badly_signed_mail).present?
+    AppSettings.gpg_mail_ignore_bad_signature = false
+  end
+
   it 'should properly identify encryption status' do
       assert GpgMailHelper.decrypt_if_encrypted(simple_mail)[1] == false
       assert GpgMailHelper.decrypt_if_encrypted(signed_mail)[1] == false
