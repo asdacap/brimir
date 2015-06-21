@@ -32,4 +32,4 @@ module GpgMailerPatch
   end
 end
 
-ActionMailer::Base.include GpgMailerPatch
+ActionMailer::Base.send :include, GpgMailerPatch
