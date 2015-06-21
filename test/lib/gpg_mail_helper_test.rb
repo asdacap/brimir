@@ -76,7 +76,7 @@ describe GpgMailHelper do
       encrypted = encrypted_mail
       assert encrypted.encrypted?
       result = GpgMailHelper.decrypt_if_encrypted encrypted
-      assert result.encrypted? == false
+      assert result[0].encrypted? == false
     end
   end
 
@@ -99,7 +99,7 @@ describe GpgMailHelper do
     it "should return the unencrypted email when the email is properly signed and encrypted" do
       result = GpgMailHelper.decrypt_if_encrypted(encrypted_and_signed_mail)
       assert result.present?
-      assert result.encrypted? == false
+      assert result[0].encrypted? == false
     end
   end
 
@@ -118,11 +118,25 @@ describe GpgMailHelper do
     encrypted = encrypted_mail
     assert encrypted.encrypted?
     result = GpgMailHelper.decrypt_if_encrypted encrypted
-    assert result.encrypted? == false
+    assert result[0].encrypted? == false
   end
 
   it 'should return nil when the email is badly signed' do
     assert GpgMailHelper.decrypt_if_encrypted(badly_signed_mail).nil?
+  end
+
+  it 'should properly identify encryption status' do
+      assert GpgMailHelper.decrypt_if_encrypted(simple_mail)[1] == false
+      assert GpgMailHelper.decrypt_if_encrypted(signed_mail)[1] == false
+      assert GpgMailHelper.decrypt_if_encrypted(encrypted_mail)[1] == true
+      assert GpgMailHelper.decrypt_if_encrypted(encrypted_and_signed_mail)[1] == true
+  end
+
+  it 'should properly identify signed status' do
+      assert GpgMailHelper.decrypt_if_encrypted(simple_mail)[2] == false
+      assert GpgMailHelper.decrypt_if_encrypted(signed_mail)[2] == true
+      assert GpgMailHelper.decrypt_if_encrypted(encrypted_mail)[2] == false
+      assert GpgMailHelper.decrypt_if_encrypted(encrypted_and_signed_mail)[2] == false
   end
 
 end

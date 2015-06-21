@@ -35,7 +35,10 @@ class TicketMailer < ActionMailer::Base
       return nil
     end
 
-    email = remail
+    email = remail[0]
+    encrypted = remail[1]
+    signed = remail[2]
+    signature_valid = remail[3]
 
     # is this an address verification mail?
     if VerificationMailer.receive(email)
@@ -97,6 +100,9 @@ class TicketMailer < ActionMailer::Base
       # add reply
       incoming = Reply.create!({
         content: content,
+        encrypted: encrypted,
+        signed: signed,
+        signature_valid: signature_valid,
         ticket_id: ticket.id,
         from: email.from.first,
         message_id: email.message_id,
@@ -108,6 +114,9 @@ class TicketMailer < ActionMailer::Base
       # add new ticket
       ticket = Ticket.create!({
         from: email.from.first,
+        encrypted: encrypted,
+        signed: signed,
+        signature_valid: signature_valid,
         subject: subject,
         content: content,
         message_id: email.message_id,
